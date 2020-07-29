@@ -38,7 +38,7 @@ The exported name `Pie` has been changed to `PieChart` since v2.
 
 ```js
 // v1
-import { Pie } from 'woowahan-chart'
+import { Pie } from 'woowahan-pie'
 
 // v2
 import { PieChart } from 'woowahan-chart'
