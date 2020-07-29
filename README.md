@@ -32,7 +32,7 @@
 The exported name `Pie` has been changed to `PieChart` since v2.
 
 ```zsh
-> npm uninstall woowahan-chart
+> npm uninstall woowahan-pie
 > npm install woowahan-chart
 ```
 
