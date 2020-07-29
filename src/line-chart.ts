@@ -77,8 +77,10 @@ class LineChartInstance {
                   ? html`
                       <div
                         class="line-wrapper"
-                        style="--diff: ${Math.abs(d.y - data[i + 1]?.y ?? 0) /
-                        this.maxY}; --reverse: ${d.y > (data[i + 1]?.y ?? 0)
+                        style="--diff: ${Math.abs(
+                          d.y - (data[i + 1] ? data[i + 1].y : 0)
+                        ) / this.maxY}; --reverse: ${d.y >
+                        (data[i + 1] ? data[i + 1].y : 0)
                           ? -1
                           : 1}"
                       >
