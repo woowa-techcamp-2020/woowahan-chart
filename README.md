@@ -19,7 +19,7 @@
   </a>
 </p>
 
-<p align="center">A simple HTML chart generator that helps you easily create a simple yet elegant HTML charts just in a second.</p>
+<p align="center">A simple HTML chart generator that helps you easily create simple yet elegant HTML charts just in a second.</p>
 
 ---
 
