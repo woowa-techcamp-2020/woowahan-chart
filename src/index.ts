@@ -1,1 +1,1 @@
-export { Pie } from './pie'
+export { PieChart } from './pie-chart'

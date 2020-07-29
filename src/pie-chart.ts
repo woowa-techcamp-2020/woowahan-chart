@@ -1,5 +1,5 @@
 import { PieSegment } from './pie-segment'
-import { style } from './style'
+import { style } from './styles/pie-style'
 
 type PieOptions = {
   target: string | HTMLElement
@@ -78,4 +78,4 @@ class PieInstance {
   }
 }
 
-export const Pie = (options: PieOptions) => new PieInstance(options)
+export const PieChart = (options: PieOptions) => new PieInstance(options)
