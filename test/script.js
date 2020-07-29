@@ -1,7 +1,7 @@
-import { Pie, LineChart } from './lib/index.js'
+import { PieChart, LineChart } from './lib/index.js'
 
 window.addEventListener('load', () => {
-  const pie = Pie({
+  PieChart({
     target: '.pie-container',
     size: 300,
     segments: [
@@ -41,10 +41,10 @@ window.addEventListener('load', () => {
         x: '6/6',
         y: 17000,
       },
-      // {
-      //   x: '6/7',
-      //   y: 30000,
-      // },
+      {
+        x: '6/7',
+        y: 30000,
+      },
     ],
   })
 })
