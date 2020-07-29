@@ -12,7 +12,7 @@ type LineChartData = LineChartDatum[]
 
 type LineChartOptions = {
   target: string | HTMLElement
-  maxY?: number
+  maxY: number
   intervalY: number
   data: LineChartData
 }
