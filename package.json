@@ -11,7 +11,7 @@
   "scripts": {
     "clear": "rimraf lib/*",
     "clear:test": "rimraf test/lib/*",
-    "dev:source": "npm run clear:test && microbundle watch -f modern --compress false -o test/lib/index.js",
+    "dev:source": "npm run clear:test && microbundle watch --target node -f modern --compress false -o test/lib/index.js",
     "dev:serve": "serve test --listen 9999",
     "dev": "npm-run-all --parallel dev:source dev:serve",
     "build": "npm run clear && microbundle -f modern,umd --sourcemap false"
@@ -24,5 +24,8 @@
     "rimraf": "^3.0.2",
     "serve": "^11.3.2",
     "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "lit-html": "^1.2.1"
   }
 }
