@@ -77,7 +77,7 @@ style.textContent = css`
     height: 100%;
     background-color: var(--color, crimson);
     transform-origin: 100% 50%;
-    transform: translateX(-100%) rotate(0deg);
+    transform: translateX(calc(-100% - 1px)) rotate(0deg);
     transition: var(--transition);
   }
 
