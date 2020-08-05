@@ -37,10 +37,11 @@ style.textContent = `
   transition: transform 500ms ease, opacity 500ms ease;
 }
 
-.pie.ready .legend-helper .legend {
-  transform: translateX(-50%) translateY(-1.3em) rotate(calc(var(--degree, 0) * -1deg));
+  /* .pie.ready .legend-helper .legend {
+    transform: translateX(-50%) translateY(-1.3em)
+      rotate(calc(var(--degree, 0) * -1deg));
   opacity: 1;
-}
+  } */
 
 .pie-segment {
   position: absolute;
