@@ -2,6 +2,7 @@ import { validateElement } from './utils/validate-element'
 import { dommer } from './styles/dommer'
 import { lineChartStyle } from './styles/line-chart-style'
 import { html, render } from '../node_modules/lit-html'
+import { css } from './utils/template-literal'
 
 type LineChartDatum = {
   x: string
@@ -12,9 +13,10 @@ type LineChartData = LineChartDatum[]
 
 type LineChartOptions = {
   target: string | HTMLElement
+  data: LineChartData
   maxY: number
   intervalY: number
-  data: LineChartData
+  intervalX?: number
 }
 
 class LineChartInstance {
@@ -23,6 +25,7 @@ class LineChartInstance {
   private chartData: LineChartData
   private maxY: number
   private intervalY: number
+  private intervalX?: number
 
   constructor(options: LineChartOptions) {
     this.targetElm = validateElement(options.target)
@@ -32,6 +35,7 @@ class LineChartInstance {
       options.data.reduce((prev, curr) => Math.max(prev, curr.y), 0)
 
     this.intervalY = options.intervalY
+    this.intervalX = options.intervalX
 
     this.mount()
   }
@@ -43,11 +47,19 @@ class LineChartInstance {
 
     shadow.appendChild(lineChartStyle)
 
+    const nthChildStyle = document.createElement('style')
+
+    nthChildStyle.textContent = css`
+      .spacer:nth-child(${this.intervalX ?? ''}n + 1) .legend {
+        display: block;
+      }
+    `
+
+    shadow.appendChild(nthChildStyle)
+
     const chartBody = dommer`<div class="chart-body" />`.firstElementChild
 
     shadow.appendChild(chartBody)
-
-    console.log(`maxY: ${this.maxY}, intervalY: ${this.intervalY}`)
 
     const yLevels = []
 
@@ -69,20 +81,23 @@ class LineChartInstance {
         )}
       </div>
       <div class="line-chart">
-        ${data.map(
-          (d, i) => html`
+        ${data.map((d, i) => {
+          const diff =
+            Math.abs(d.y - (data[i + 1] ? data[i + 1].y : 0)) / this.maxY
+
+          return html`
             <div class="spacer">
               <div class="pillar" style="--percent: ${(d.y / this.maxY) * 100}">
                 ${i !== data.length - 1
                   ? html`
                       <div
                         class="line-wrapper"
-                        style="--diff: ${Math.abs(
-                          d.y - (data[i + 1] ? data[i + 1].y : 0)
-                        ) / this.maxY}; --reverse: ${d.y >
+                        style="--diff: ${diff}; --reverse: ${d.y >
                         (data[i + 1] ? data[i + 1].y : 0)
                           ? -1
-                          : 1}"
+                          : 1}; ${diff === 0
+                          ? 'height: 2px; background: #0091FA; transform: translateY(1px);'
+                          : ''}"
                       >
                         <svg class="vector">
                           <line
@@ -103,7 +118,7 @@ class LineChartInstance {
               <label class="legend">${d.x}</label>
             </div>
           `
-        )}
+        })}
       </div>
     `
 
