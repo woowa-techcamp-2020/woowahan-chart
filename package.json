@@ -1,6 +1,6 @@
 {
   "name": "woowahan-chart",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A simple Pie Chart Generator implemented with CSS and Shadow DOM",
   "source": "src/index.ts",
   "main": "lib/index.js",
