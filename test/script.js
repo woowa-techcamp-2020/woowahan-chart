@@ -5,8 +5,8 @@ window.addEventListener('load', () => {
     target: '.pie-container',
     size: 300,
     segments: [
-      { percent: 65, color: '#05a790', legend: 'Water [%]' },
-      { percent: 16, color: '#13c1a9', legend: 'Protein [%]' },
+      { percent: 55, color: '#05a790', legend: '[%] Water' },
+      { percent: 26, color: '#13c1a9', legend: 'Protein [%]' },
       { percent: 14, color: '#27dac1', legend: 'Fat [%]' },
       { percent: 5, color: '#3dead2', legend: 'Mineral [%]' },
     ],
@@ -14,8 +14,9 @@ window.addEventListener('load', () => {
 
   const lineChart = LineChart({
     target: '.line-chart-container',
-    maxY: 30000,
+    maxY: 5000 * 40,
     intervalY: 5000,
+    intervalX: 2,
     data: [
       {
         x: '6/1',
@@ -44,6 +45,42 @@ window.addEventListener('load', () => {
       {
         x: '6/7',
         y: 30000,
+      },
+      {
+        x: '6/8',
+        y: 29500,
+      },
+      {
+        x: '6/9',
+        y: 30000,
+      },
+      {
+        x: '6/10',
+        y: 30000,
+      },
+      {
+        x: '6/11',
+        y: 30000,
+      },
+      {
+        x: '6/12',
+        y: 30000,
+      },
+      {
+        x: '6/13',
+        y: 30000,
+      },
+      {
+        x: '6/14',
+        y: 30000,
+      },
+      {
+        x: '6/15',
+        y: 30000,
+      },
+      {
+        x: '6/16',
+        y: 25000,
       },
     ],
   })
