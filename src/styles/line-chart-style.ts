@@ -8,6 +8,9 @@ lineChartStyle.textContent = css`
   }
 
   .chart-body {
+    height: var(--height, 350px);
+    display: flex;
+    align-items: flex-end;
     position: relative;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -21,13 +24,24 @@ lineChartStyle.textContent = css`
     }
   }
 
+  @keyframes grow {
+    0% {
+      height: 0px;
+    }
+
+    100% {
+      height: var(--height, 350px);
+    }
+  }
+
   .line-chart {
     width: var(--width, 600px);
-    height: var(--height, 350px);
+    height: 0;
     display: flex;
     flex-direction: row;
     transition: width 500ms ease, height 500ms ease;
     padding: 0 20px;
+    animation: 600ms grow ease forwards;
   }
 
   .spacer {

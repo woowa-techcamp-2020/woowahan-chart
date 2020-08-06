@@ -243,7 +243,7 @@ An array of points data with x, y values.
 ### Line Chart
 
 - [x] Implementation
-- [ ] Animation on load
+- [x] Animation on load
 - [ ] Manipulate (add, remove, edit) points dynamically
 
 ## License
