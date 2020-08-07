@@ -71,13 +71,14 @@ lineChartStyle.textContent = css`
   }
 
   .pillar .point {
-    border: 3px solid #fff;
+    --point-size: 9px;
+    border: 2px solid #fff;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     position: absolute;
     bottom: 0;
     left: 0;
-    width: var(--point-size, 12px);
-    height: var(--point-size, 12px);
+    width: var(--point-size);
+    height: var(--point-size);
     border-radius: 9999px;
     background-color: var(--point-color, #0091fa);
     transform: translateX(-50%) translateY(50%);
